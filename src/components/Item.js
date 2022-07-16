@@ -9,10 +9,10 @@ const Item = (props) => {
 			<p>{props.isActive}</p>
 			<p>{props.name}</p>
 			<p>{props.surname}</p>
-			<Button onClick={() => props.clickedElement(props.id)}>
+			<Button onClick={() => props.toggleClass(props.id)}>
 				toggle
 			</Button>
-			<Button value={props.isActive}>delete</Button>
+			<Button onClick={() => props.deleteItem(props.id)}>delete</Button>
 		</div>
 	);
 };

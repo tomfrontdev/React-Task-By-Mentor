@@ -54,22 +54,34 @@ const List = (props) => {
 
 	const [enteredUser, setUser] = useState(modifiedData);
 
-	const clicked = (id) => {
-		const clickedElement = modifiedData.filter((user) => user.id == id);
-		const [user] = clickedElement;
-		if (user.isActive == "true") {
-			user.isActive = "false";
-			console.log(modifiedData);
-			setUser(modifiedData);
-			return;
-		}
+	console.log(enteredUser);
+	let newArray
+	const toggleClass = (id) => {
+		newArray = modifiedData
+			.map((user) => user)
+			.filter((user) => user.id !== id);
 
-		if (user.isActive == "false") {
-			user.isActive = "true";
-			console.log(modifiedData);
-			setUser(modifiedData)
-			return;
-		}
+		setUser(newArray);
+
+		// clickedArray.filter((user) => user.id == id);
+		// const [user] = clickedArray;
+		// console.log(clickedArray);
+
+		// if (user.isActive == "true") {
+		// 	user.isActive = "false";
+		// 	setUser(clickedElement);
+		// 	return;
+		// }
+
+		// if (user.isActive == "false") {
+		// 	user.isActive = "true";
+		// 	setUser(clickedElement);
+		// 	return;
+		// }
+	};
+
+	const deleteItem = (id) => {
+		console.log(id);
 	};
 
 	return enteredUser.map((user) => (
@@ -77,7 +89,8 @@ const List = (props) => {
 			<Item
 				name={user.name}
 				surname={user.surname}
-				clickedElement={clicked}
+				toggleClass={toggleClass}
+				deleteItem={deleteItem}
 				id={user.id}
 				isActive={user.isActive}
 			></Item>
