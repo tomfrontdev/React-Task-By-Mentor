@@ -67,7 +67,7 @@ const List = (props) => {
 		if (user.isActive == "false") {
 			user.isActive = "true";
 			console.log(modifiedData);
-			setUser(modifiedData);
+			setUser(modifiedData)
 			return;
 		}
 	};
