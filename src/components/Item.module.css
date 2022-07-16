@@ -1,0 +1,13 @@
+.item {
+	width: 400px;
+	height: 50px;
+	background-image: linear-gradient(to right, red, yellow);
+
+	margin: auto;
+	display: flex;
+	margin-top: 10px;
+}
+
+.item.invalid {
+	background-image: linear-gradient(to blue, yellow, red);
+}
