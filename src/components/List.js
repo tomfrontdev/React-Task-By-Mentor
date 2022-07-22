@@ -52,6 +52,8 @@ const List = (props) => {
 	const [enteredUser, setUser] = useState(modifiedData);
 	const [enteredText, setText] = useState("");
 	const [isFetching, setisFetching] = useState(true);
+	const [enteredPokemon, setPokemon] = useState("")
+
 
 	const toggleClass = (id) => {
 		setUser((prev) =>
@@ -98,13 +100,17 @@ const List = (props) => {
 				);
 				console.log(response);
 				const data = await response.json();
-				setisFetching(true)
+				setisFetching(false);
+				setPokemon(data.results)
 			} catch {
-				console.log("HI");
+				console.log("Hi")
 			}
 		}
 		getData();
-	})
+	}, [enteredUser])
+
+
+
 
 
 	// TODO: poniższy kod powoduje błąd: "Warning: Each child in a list should have a unique "key" prop". Musisz dodać prop "key"
@@ -121,8 +127,12 @@ const List = (props) => {
 					isActive={user.isActive}
 				></Item>
 			))}
-			{!isFetching && <Item text="Loaded"></Item>}
-			{isFetching && <Item text="Loading"></Item>}
+			{isFetching && <p> Data is loading</p>}
+			{!isFetching && enteredPokemon.map((user) => (
+				<Item
+				text={user.name}
+			></Item>
+			))}
 		</React.Fragment>
 	);
 };

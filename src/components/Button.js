@@ -1,5 +1,5 @@
 import styles from "./Button.module.css";
-import { useState } from "react";
+import React, { Component }  from 'react';
 
 const Button = (props) => {
 	return (
