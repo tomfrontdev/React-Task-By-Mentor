@@ -8,6 +8,6 @@
 	margin-top: 10px;
 }
 
-.item.invalid {
-	background-image: linear-gradient(to blue, yellow, red);
+.item.active {
+	background-image: linear-gradient(to right, black, red);
 }
